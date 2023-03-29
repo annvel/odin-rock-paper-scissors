@@ -16,6 +16,49 @@ function getComputerChoice() {
     const myArrRandom = myArr[myArrIndex];
     return myArrRandom;
 }
-getComputerChoice();
+//getComputerChoice();
 //console.log("COMPUTER CHOICE: ", getComputerChoice());
 
+function playRound(playerSelection, computerSelection) {
+    const playerSelectionLowerCase = playerSelection.toLowerCase();
+    //console.log("YOUR SELECTION: " + playerSelectionLowerCase);
+
+    if(!["rock", "paper", "scissors"].includes(playerSelectionLowerCase)) {
+        return "Invalid input. Please enter 'rock', 'paper', 'scissors'";
+    } else {
+        if(playerSelectionLowerCase === "rock") {
+            if(computerSelection === "paper") {
+                return "You Lose. Paper beats Rock";
+            } else if(computerSelection === "scissors") {
+                return "You Win. Rock beats Scissors";
+            } else if(playerSelection === computerSelection) {
+                return "Draw";
+            }
+        } else if(playerSelectionLowerCase === "paper") {
+            if(computerSelection === "scissors") {
+                return "You Lose. Scissors beats Paper";
+            } else if(computerSelection === "rock") {
+                return "You Win. Paper beats Rock";
+            } else if(playerSelection === computerSelection) {
+                return "Draw";
+            }
+        } else if(playerSelectionLowerCase === "scissors") {
+            if(computerSelection === "rock") {
+                return "You Lose. Rock beats Scissors";
+            } else if(computerSelection === "paper") {
+                return "You Win. Scissors beats Paper";
+            } else if(playerSelection === computerSelection) {
+                return "Draw";
+            }
+        }
+    }
+}
+//const playerSelection = prompt("Please enter your weapon", "rock");
+const playerSelectionLowerCase = playerSelection.toLowerCase();
+const computerSelection = getComputerChoice();
+const result = playRound(playerSelection, computerSelection);
+
+console.log("COMPUTER CHOICE: ", computerSelection);
+console.log("YOUR SELECTION: " + playerSelection);
+
+console.log(result);
