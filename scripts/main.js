@@ -53,7 +53,7 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
-//const playerSelection = prompt("Please enter your weapon", "rock");
+const playerSelection = prompt("Please enter your weapon", "rock");
 const playerSelectionLowerCase = playerSelection.toLowerCase();
 const computerSelection = getComputerChoice();
 const result = playRound(playerSelection, computerSelection);
