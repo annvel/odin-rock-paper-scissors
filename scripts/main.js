@@ -23,7 +23,7 @@ function playRound(playerSelection, computerSelection) {
     const playerSelectionLowerCase = playerSelection.toLowerCase();
     //console.log("YOUR SELECTION: " + playerSelectionLowerCase);
 
-    if(!["rock", "paper", "scissors"].includes(playerSelectionLowerCase)) {
+    if(playerSelection === null  || playerSelection.trim() === "" || !["rock", "paper", "scissors"].includes(playerSelectionLowerCase)) {
         return "Invalid input. Please enter 'rock', 'paper', 'scissors'";
     } else {
         if(playerSelectionLowerCase === "rock") {
@@ -54,11 +54,16 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 const playerSelection = prompt("Please enter your weapon", "rock");
-const playerSelectionLowerCase = playerSelection.toLowerCase();
-const computerSelection = getComputerChoice();
-const result = playRound(playerSelection, computerSelection);
 
-console.log("COMPUTER CHOICE: ", computerSelection);
-console.log("YOUR SELECTION: " + playerSelection);
+if(playerSelection !== null) {
+    const playerSelectionLowerCase = playerSelection.toLowerCase();
+    const computerSelection = getComputerChoice();
+    const result = playRound(playerSelection, computerSelection);
 
-console.log(result);
+    console.log("COMPUTER CHOICE: ", computerSelection);
+    console.log("YOUR SELECTION: " + playerSelection);
+
+    console.log(result);
+} else {
+    console.log("You have cancelled the game!");
+}
