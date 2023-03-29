@@ -9,3 +9,13 @@
 // 8. Ensure Player's selection input is case insensitive
 // 9, Ensure Computer's selection input is case insensitive
 // 10. Play 5 game rounds and determine the final winner
+
+function getComputerChoice() {
+    const myArr = ["rock", "paper", "scissors"];
+    const myArrIndex = Math.floor(Math.random() * myArr.length);
+    const myArrRandom = myArr[myArrIndex];
+    return myArrRandom;
+}
+getComputerChoice();
+//console.log("COMPUTER CHOICE: ", getComputerChoice());
+
