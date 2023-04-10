@@ -60,10 +60,10 @@ if(playerSelection !== null) {
     const computerSelection = getComputerChoice();
     const result = playRound(playerSelection, computerSelection);
 
-    console.log("COMPUTER CHOICE: ", computerSelection);
-    console.log("YOUR SELECTION: " + playerSelection);
+    //console.log("COMPUTER CHOICE: ", computerSelection);
+    //console.log("YOUR SELECTION: " + playerSelection);
 
-    console.log(result);
+    //console.log(result);
 } else {
     console.log("You have cancelled the game!");
 }
