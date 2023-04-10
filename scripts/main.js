@@ -67,3 +67,33 @@ if(playerSelection !== null) {
 } else {
     console.log("You have cancelled the game!");
 }
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let round = 1;
+
+    while(round <= 5) {
+        const playerSelection = prompt("Please enter your weapon", "rock");
+        const playerSelectionLowerCase = playerSelection.toLowerCase();
+        const computerSelection = getComputerChoice();
+        const result = playRound(playerSelection, computerSelection);
+
+        console.log("\nGAME ROUND: " + round);
+        console.log("COMPUTER CHOICE: ", computerSelection);
+        console.log("YOUR SELECTION: " + playerSelection);
+
+        console.log(result);
+
+        if(result.includes("Win")) {
+            console.log("You won round", round);
+            playerScore++;
+        } else if(result.includes("Lose")) {
+            console.log("You Lost round", round);
+            computerScore++;
+        }
+        round++;
+    }
+} 
+
+game();
