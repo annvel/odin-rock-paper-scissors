@@ -53,20 +53,6 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
-const playerSelection = prompt("Please enter your weapon", "rock");
-
-if(playerSelection !== null) {
-    const playerSelectionLowerCase = playerSelection.toLowerCase();
-    const computerSelection = getComputerChoice();
-    const result = playRound(playerSelection, computerSelection);
-
-    //console.log("COMPUTER CHOICE: ", computerSelection);
-    //console.log("YOUR SELECTION: " + playerSelection);
-
-    //console.log(result);
-} else {
-    console.log("You have cancelled the game!");
-}
 
 function game() {
     let playerScore = 0;
@@ -75,6 +61,12 @@ function game() {
 
     while(round <= 5) {
         const playerSelection = prompt("Please enter your weapon", "rock");
+
+        if(playerSelection === null) {
+            console.log("You have cancelled the game!");
+            return;
+        }
+
         const playerSelectionLowerCase = playerSelection.toLowerCase();
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
