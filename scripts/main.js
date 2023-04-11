@@ -31,7 +31,7 @@ function playRound(playerSelection, computerSelection) {
                 return "You Lose. Paper beats Rock";
             } else if(computerSelection === "scissors") {
                 return "You Win. Rock beats Scissors";
-            } else if(playerSelection === computerSelection) {
+            } else if(playerSelectionLowerCase === computerSelection) {
                 return "Draw";
             }
         } else if(playerSelectionLowerCase === "paper") {
@@ -39,7 +39,7 @@ function playRound(playerSelection, computerSelection) {
                 return "You Lose. Scissors beats Paper";
             } else if(computerSelection === "rock") {
                 return "You Win. Paper beats Rock";
-            } else if(playerSelection === computerSelection) {
+            } else if(playerSelectionLowerCase === computerSelection) {
                 return "Draw";
             }
         } else if(playerSelectionLowerCase === "scissors") {
@@ -47,7 +47,7 @@ function playRound(playerSelection, computerSelection) {
                 return "You Lose. Rock beats Scissors";
             } else if(computerSelection === "paper") {
                 return "You Win. Scissors beats Paper";
-            } else if(playerSelection === computerSelection) {
+            } else if(playerSelectionLowerCase === computerSelection) {
                 return "Draw";
             }
         }
@@ -73,17 +73,22 @@ function game() {
 
         console.log("\nGAME ROUND: " + round);
         console.log("COMPUTER CHOICE: ", computerSelection);
-        console.log("YOUR SELECTION: " + playerSelection);
+        console.log("YOUR SELECTION: " + playerSelectionLowerCase);
 
         console.log(result);
 
-        if(result.includes("Win")) {
-            console.log("You won round", round);
-            playerScore++;
-        } else if(result.includes("Lose")) {
-            console.log("You Lost round", round);
-            computerScore++;
+        if(result) {
+            if(result.includes("Win")) {
+                console.log("You won round", round);
+                playerScore++;
+            } else if(result.includes("Lose")) {
+                console.log("You Lost round", round);
+                computerScore++;
+            }
+        } else {
+            console.log("Invalid input. Please enter 'rock', 'paper', 'scissors'");
         }
+        
         round++;
     }
 } 
