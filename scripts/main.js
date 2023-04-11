@@ -16,12 +16,9 @@ function getComputerChoice() {
     const myArrRandom = myArr[myArrIndex];
     return myArrRandom;
 }
-//getComputerChoice();
-//console.log("COMPUTER CHOICE: ", getComputerChoice());
 
 function playRound(playerSelection, computerSelection) {
     const playerSelectionLowerCase = playerSelection.toLowerCase();
-    //console.log("YOUR SELECTION: " + playerSelectionLowerCase);
 
     if(playerSelection === null  || playerSelection.trim() === "" || !["rock", "paper", "scissors"].includes(playerSelectionLowerCase)) {
         return "Invalid input. Please enter 'rock', 'paper', 'scissors'";
