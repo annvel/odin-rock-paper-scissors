@@ -88,6 +88,19 @@ function game() {
         
         round++;
     }
+
+    console.log("=========================================================");
+
+    if(!["rock", "paper", "scissors"].includes(
+        playerSelectionLowerCase)) {
+        console.log("GAME ERROR! INVALID WEAPON INPUTS DETECTED! TRY AGAIN!");
+    } else if(playerScore === computerScore) {
+        console.log("DRAW: YOU & THE COMPUTER HAVE A TIE!");
+    } else if(playerScore > computerScore) {
+        console.log("YOU WON: "+ playerScore + "/5");
+    } else {
+        console.log("YOU LOST: " + computerScore + "/5");
+    }
 } 
 
 game();
