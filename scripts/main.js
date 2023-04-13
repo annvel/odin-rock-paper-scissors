@@ -65,21 +65,21 @@ function game() {
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
 
-        console.log("\nGAME ROUND: " + round);
-        console.log("COMPUTER CHOICE: ", computerSelection);
-        console.log("YOUR SELECTION: " + playerSelectionLowerCase);
+        console.log(`\nGAME ROUND: ${round}`);
+        console.log(`COMPUTER CHOICE: ${computerSelection}`);
+        console.log(`YOUR SELECTION: ${playerSelectionLowerCase}`);
 
         console.log(result);
 
         if(result) {
             if(result.includes("Win")) {
-                console.log("You won round", round);
+                console.log(`You won round: ${round}`);
                 playerScore++;
             } else if(result.includes("Lose")) {
-                console.log("You Lost round", round);
+                console.log(`You Lost round: ${round}`);
                 computerScore++;
             } else if(result === "Draw") {
-                console.log("It' a Draw in round ", round);
+                console.log(`It's a Draw in round ${round}`);
             }
         } else {
             console.log("Invalid input. Please enter 'rock', 'paper', 'scissors'");
