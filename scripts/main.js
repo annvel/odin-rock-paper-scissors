@@ -1,15 +1,4 @@
-// Pseudocode
-// 1. Computer randomly plays "Rock", "Paper" or "Scissors"
-// 2. User inputs "Rock", "Paper" or "Scissors"
-// 3. Compare both player selections and assign a winner
-// 4. If Rock and Paper are played, Paper wins
-// 5. If Rock and Scissors are played, Rock wins
-// 6. If Paper and Scissors are played, Scissors wins
-// 7. If both selection are same, game is tie
-// 8. Ensure Player's selection input is case insensitive
-// 9, Ensure Computer's selection input is case insensitive
-// 10. Play 5 game rounds and determine the final winner
-
+//Computer randomly plays "Rock", "Paper" or "Scissors"
 function getComputerChoice() {
     const myArr = ["rock", "paper", "scissors"];
     const myArrIndex = Math.floor(Math.random() * myArr.length);
@@ -17,6 +6,8 @@ function getComputerChoice() {
     return myArrRandom;
 }
 
+//User inputs "Rock", "Paper" or "Scissors"
+//Compare both player selections and assign a winner
 function playRound(playerSelection, computerSelection, playerScore, computerScore) {
     const playerSelectionLowerCase = playerSelection.toLowerCase();
 
@@ -47,6 +38,7 @@ function playRound(playerSelection, computerSelection, playerScore, computerScor
     }
 }
 
+//Play 5 game rounds and determine the final winner
 function game() {
     let playerScore = 0;
     let computerScore = 0;
@@ -69,20 +61,25 @@ function game() {
         console.log(`COMPUTER CHOICE: ${computerSelection}`);
         console.log(`YOUR SELECTION: ${playerSelectionLowerCase}`);
 
-        console.log(result);
-
-        if(result) {
-            if(result.includes("Win")) {
-                console.log(`You won round: ${round}`);
-                playerScore++;
-            } else if(result.includes("Lose")) {
-                console.log(`You Lost round: ${round}`);
-                computerScore++;
-            } else if(result === "Draw") {
-                console.log(`It's a Draw in round ${round}`);
-            }
+        if(result === "Invalid input. Please enter 'rock', 'paper', 'scissors'"){
+            console.log(result);
+            console.log("\u26A0 GAME ERROR! INVALID WEAPON INPUT DETECTED! TRY AGAIN!");
+            return;
+        } else if(result === "Game Over!") {
+            console.log(result);
+            break;
         } else {
-            console.log("Invalid input. Please enter 'rock', 'paper', 'scissors'");
+            console.log(result);
+        }
+
+        if(result.includes("Win")) {
+            console.log(`You won round: ${round}`);
+            playerScore++;
+        } else if(result.includes("Lose")) {
+            console.log(`You Lost round: ${round}`);
+            computerScore++;
+        } else if(result === "Draw") {
+            console.log(`It's a Draw in round ${round}`);
         }
         
         round++;
@@ -90,16 +87,13 @@ function game() {
 
     console.log("=========================================================");
 
-    if(!["rock", "paper", "scissors"].includes(
-        playerSelectionLowerCase)) {
-        console.log("GAME ERROR! INVALID WEAPON INPUTS DETECTED! TRY AGAIN!");
-    } else if(playerScore === computerScore) {
+    if(playerScore === computerScore) {
         console.log("DRAW: YOU & THE COMPUTER HAVE A TIE!");
     } else if(playerScore > computerScore) {
         console.log(`YOU WON: ${playerScore}/5`);
     } else {
         console.log(`YOU LOST: ${computerScore}/5`);
-    }
+    } 
 } 
 
 game();
