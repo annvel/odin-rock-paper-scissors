@@ -96,9 +96,9 @@ function game() {
     if(playerScore === computerScore) {
         console.log("DRAW: YOU & THE COMPUTER HAVE A TIE!");
     } else if(playerScore > computerScore) {
-        console.log(`YOU WON: ${playerScore}/5`);
+        console.log(`YOU WON:\nFinal Tally \nYour Score ${playerScore}/5 vs Computer Score ${computerScore}/5`);
     } else {
-        console.log(`YOU LOST: ${computerScore}/5`);
+        console.log(`YOU LOST:\nFinal Tally \nComputer Score ${computerScore}/5 vs Your Score ${playerScore}/5`);
     } 
 } 
 
